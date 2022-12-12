@@ -1,0 +1,9 @@
+.linethrough {
+  cursor: pointer;
+  text-decoration: line-through solid black;
+}
+
+.unmarked {
+  cursor: pointer;
+  text-decoration: solid;
+}

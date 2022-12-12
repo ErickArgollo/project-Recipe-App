@@ -1,0 +1,10 @@
+.caroussel {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.start-recipe-btn {
+  bottom: 0;
+  position: fixed;
+}
+
