@@ -59,6 +59,10 @@ margin: auto;
 overflow-x: hidden;
 overflow-y: hidden;
 gap: 20px;
+overflow-x: scroll;
+::-webkit-scrollbar {
+  display: none;
+}
 `;
 
 export const titleButonContainer = styled.div`
