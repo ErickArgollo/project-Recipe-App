@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Header from '../components/Header';
 import * as S from './styles/FavoriteRecipes.style';
 import Footer from '../components/Footer';
+import Loading from '../components/Loading';
 
 const copy = require('clipboard-copy');
 
@@ -10,6 +11,7 @@ function FavoriteRecipes() {
   const favorites = JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   const [arrFavorites, setFavorites] = useState(favorites);
   const [copied, setCopied] = useState('');
+  const [pageLoading, setLoading] = useState(true)
 
   const filterAll = () => {
     setFavorites(favorites);
@@ -45,9 +47,18 @@ function FavoriteRecipes() {
   const toggleFavorite = (id) => {
     removeFavorite(favorites, id);
   };
+
+  useEffect(() => {
+    setInterval(() => {
+      setLoading(false)
+    }, 1000)
+  }, [])
+
   return (
     <S.favoritePageContainer>
-      <Header pageTitle="Favorite Recipes" />
+      {
+        pageLoading ? <Loading /> : <>
+        <Header pageTitle="Favorite Recipes" />
       <S.pageTitle>FAVORITES</S.pageTitle>
       <S.filtersContainer>
         <S.titleButonContainer>
@@ -152,6 +163,9 @@ function FavoriteRecipes() {
             </S.footerDiv>)
           : <Footer />
       }
+        </>
+      }
+      
 
     </S.favoritePageContainer>
   );

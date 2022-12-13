@@ -10,6 +10,7 @@ import CockTailDbApi from '../services/CockTailDbApi';
 import MealDbApi from '../services/MealDbApi';
 import * as S from './styles/Recipes.style';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Loading from '../components/Loading';
 
 function Recipes() {
   const history = useHistory();
@@ -54,6 +55,7 @@ function Recipes() {
     setCategory(categories);
   }, [pageTitle, setCategory]);
 
+
   useEffect(() => {
     getDefaultRecipes();
     getCategories();
@@ -87,7 +89,9 @@ function Recipes() {
 
   return (
     <S.recipePageContainer>
-      <Header
+      {
+        apiResponse.length === 0 || categoryResponse.length === 0 ? <Loading /> : <>
+        <Header
         displaySearch
       />
       <S.pageTitle>
@@ -149,6 +153,9 @@ function Recipes() {
         }
       </S.recipesContainer>
       <Footer />
+      </>
+      }
+      
     </S.recipePageContainer>
   );
 }

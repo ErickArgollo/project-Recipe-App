@@ -3,12 +3,17 @@ import RenderDoneRecipe from '../components/RenderDoneRecipe';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import * as S from './styles/DoneRecipes.style';
+import Loading from '../components/Loading';
 
 function DoneRecipes() {
   const [doneRecipes, setDoneRecipes] = useState([]);
   const [activeFilter, setActiveFilter] = useState('');
+  const [pageLoading, setLoading] = useState(true)
 
   useEffect(() => {
+    setInterval(() => {
+      setLoading(false)
+    }, 1000)
     const getDoneRecipes = JSON.parse(localStorage.getItem('doneRecipes') || '[]');
     setDoneRecipes(getDoneRecipes);
   }, []);
@@ -30,7 +35,9 @@ function DoneRecipes() {
 
   return (
     <S.doneRecipeContainer>
-      <Header pageTitle="Done Recipes" />
+      {
+        pageLoading ? <Loading /> : <>
+          <Header pageTitle="Done Recipes" />
       <S.pageTitle>
         DONE RECIPES
       </S.pageTitle>
@@ -86,6 +93,9 @@ function DoneRecipes() {
             </S.footerDiv>)
           : <Footer />
       }
+        </>
+      }
+      
     </S.doneRecipeContainer>
   );
 }

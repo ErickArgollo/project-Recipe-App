@@ -8,6 +8,7 @@ import { verifyFavorite,
   saveFavorite,
   removeFavorite } from '../services/favoriteFunctions';
 import * as S from './styles/RecipeInProgress.style';
+import Loading from '../components/Loading';
 
 const copy = require('clipboard-copy');
 
@@ -17,6 +18,7 @@ function RecipeInProgress() {
   const [wasCopied, setWasCopied] = useState(false);
   const [recipeInProgress, setRecipeInProgress] = useState([]);
   const [isFavorite, setFavorite] = useState(false);
+  const [pageLoading, setLoading] = useState(true);
 
   const { pathname } = history.location;
   const recipeId = pathname.replace(/[^0-9]/g, '');
@@ -107,6 +109,11 @@ function RecipeInProgress() {
   };
 
   useEffect(() => {
+    setInterval(() => {
+      setLoading(false) }, 1000)
+  }, [])
+
+  useEffect(() => {
     recipeDetails();
     verifyFavorite(setFavorite, recipeId);
   }, [history, pathname, finishedIngredients]);
@@ -115,6 +122,8 @@ function RecipeInProgress() {
 
     <S.progressContainer>
       {
+        pageLoading ? <Loading /> : <>
+        {
         recipeInProgress && recipeInProgress.map((e) => (<DetailsMealsDrinks
           recipe={ e }
           key={ e.idMeal || e.idDrink }
@@ -158,6 +167,9 @@ function RecipeInProgress() {
       >
         Finalizar
       </S.doneBtn>
+        </>
+      }
+      
     </S.progressContainer>
 
   );

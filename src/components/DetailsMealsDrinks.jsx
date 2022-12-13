@@ -11,7 +11,9 @@ function DetailsMealsDrinks({ recipe }) {
   const history = useHistory();
 
   const ingredientName = extractRecipeInfos('strIngredient');
+
   const measure = extractRecipeInfos('strMeasure');
+
   const ingredients = ingredientName.map((e, i) => `${e} ${measure[i]}`);
 
   const recipeType = recipe.strMeal ? 'meal' : 'drink';

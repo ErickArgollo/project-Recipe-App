@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import DetailsMealsDrinks from '../components/DetailsMealsDrinks';
+import Loading from '../components/Loading';
 import Recommendation from '../components/Recommendation';
 import MealsContext from '../context/MealsContext';
 import drinkApi from '../services/CockTailDbApi';
@@ -11,7 +12,7 @@ import mealApi from '../services/MealDbApi';
 import * as S from './styles/RecipeDetails.style';
 
 const copy = require('clipboard-copy');
-// h
+
 function RecipeDetails() {
   const { apiResponse,
     setApiResponse,
@@ -22,6 +23,7 @@ function RecipeDetails() {
   const [wasCopied, setWasCopied] = useState(false);
   const [inProgress, setInProgress] = useState(false);
   const [isFavorite, setFavorite] = useState(false);
+  const [pageLoading, setLoading] = useState(true);
 
   const maxValue = 6;
   const recipeId = history.location.pathname.split('/')[2];
@@ -92,6 +94,9 @@ function RecipeDetails() {
   };
 
   useEffect(() => {
+    setInterval(() => {
+      setLoading(false)
+    }, 1000)
     apiRequests();
     verifyIsDone();
     continueRecipes();
@@ -100,8 +105,9 @@ function RecipeDetails() {
 
   return (
     <S.detailsContainer>
-
       {
+        pageLoading ? <Loading /> : <>
+        {
         idResponse && idResponse.map((e) => (
           <DetailsMealsDrinks
             key={ e.idDrink || e.idMeal }
@@ -178,6 +184,9 @@ function RecipeDetails() {
 
             </S.startBtn>))
       }
+        </>
+      }
+      
 
     </S.detailsContainer>
   );

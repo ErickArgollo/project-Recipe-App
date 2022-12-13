@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
+import Loading from '../components/Loading';
 import logo from '../images/logo.svg';
 import tomatepicture from '../images/tomate.svg';
 import * as S from './styles/Login.style';
@@ -8,6 +9,7 @@ function Login({ history }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isDisabled, setDisabled] = useState(true);
+  const [pageLoading, setLoading] = useState(true);
 
   const validateInputs = () => {
     const setMinVal = 6;
@@ -23,6 +25,12 @@ function Login({ history }) {
     validateInputs();
   }, [email, password]);
 
+  useEffect(() => {
+    setInterval(() => {
+      setLoading(false)
+    }, 1000)
+  }, [])
+
   const handleSubmit = () => {
     const user = {
       email,
@@ -32,9 +40,11 @@ function Login({ history }) {
     history.push('/meals');
   };
 
+
   return (
     <S.loginStyle>
-      <S.formLoginContainer>
+      {
+        pageLoading ? <Loading /> : <S.formLoginContainer>
         <S.imgsContainer>
           <S.logo src={ logo } alt="logo" />
           <S.tomate src={ tomatepicture } alt="tomate" />
@@ -62,6 +72,8 @@ function Login({ history }) {
           </S.loginBtn>
         </S.inputContainer>
       </S.formLoginContainer>
+      }
+      
     </S.loginStyle>
   );
 }

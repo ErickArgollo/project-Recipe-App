@@ -2,14 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 import * as S from './styles/Profile.style';
 
 function Profile() {
   const [storage, setStorage] = useState({});
+  const [pageLoading, setLoading] = useState(true);
   useEffect(() => {
+    setInterval(() => {
+      setLoading(false)
+    }, 1000)
     const email = JSON.parse(localStorage.getItem('user') || '{}');
     setStorage(email);
   }, []);
+
   const history = useHistory();
 
   const handleClickDone = () => {
@@ -30,7 +36,9 @@ function Profile() {
 
   return (
     <S.profileContainer>
-      <Header pageTitle="Profile" />
+      {
+        pageLoading ? <Loading /> : <>
+          <Header pageTitle="Profile" />
       <S.pageTitle>PROFILE</S.pageTitle>
       <S.email data-testid="profile-email">{storage.email}</S.email>
       <S.buttonsContainer>
@@ -83,6 +91,9 @@ function Profile() {
       <S.footerContainer>
         <Footer />
       </S.footerContainer>
+        </>
+      }
+      
     </S.profileContainer>
   );
 }
