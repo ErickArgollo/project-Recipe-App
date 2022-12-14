@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import * as S from './styles/Home.style';
-import logo from '../images/recipehome.png';
+import logo from '../images/logo.svg';
 import linkedin from '../images/linkedin.png';
 import github from '../images/github.png';
 

@@ -32,16 +32,17 @@ z-index: 1;
 `;
 
 export const logo = styled.img`
-width: 160px;
+width: 240px;
 position: relative;
-top: 10px;
+top: 1px;
+right: -8px;
 `;
 
 export const tomate = styled.img`
 position: relative;
-top: -20px;
-right: 22px;
-width: 220px;
+top: -60px;
+right: 41px;
+width: 180px;
 `;
 
 export const inputContainer = styled.div`
@@ -60,6 +61,7 @@ export const inputMailAndPassword = styled.input`
     border-radius: 5px;
     border: 0.5px solid #41197F;
     height: 40px;
+    z-index: 3;
     color: #41197F;
  ::placeholder {
     color: #41197F;

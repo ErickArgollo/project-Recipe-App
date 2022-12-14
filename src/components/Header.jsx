@@ -13,7 +13,7 @@ function Header({ displaySearch }) {
   return (
     <S.header>
       <S.topBar>
-        <S.iconRecipe src={ iconRecipe } alt="icon" />
+        {/* <S.iconRecipe src={ iconRecipe } alt="icon" /> */}
         <S.headerLogo src={ logo } alt="logo" />
         {
           displaySearch && (

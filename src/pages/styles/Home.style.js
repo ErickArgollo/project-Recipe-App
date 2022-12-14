@@ -26,6 +26,7 @@ export const logo = styled.img`
 :hover {
   transform: translateY(1px);
 }
+width: 170px;
 `;
 
 export const linkedinGitContainer = styled.div`
