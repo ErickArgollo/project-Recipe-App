@@ -68,7 +68,7 @@ function Login({ history }) {
             onClick={ handleSubmit }
             disabled={ isDisabled }
           >
-            Entrar
+            Login
           </S.loginBtn>
         </S.inputContainer>
       </S.formLoginContainer>
