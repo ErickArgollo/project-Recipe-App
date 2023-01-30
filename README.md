@@ -35,7 +35,7 @@
   <br>
 
 ## Como utilizar
-  Basta acessar a página, fazer login e navegar através das receitas favoritando as suas receitas favoritas e conhecendo novos pratos/bebidas! 
+  Basta acessar a página, fazer login( necessário email válido no formato teste@teste.com e uma senha de no mínimo 6 digitos) e navegar através das receitas favoritando as suas receitas favoritas e conhecendo novos pratos/bebidas! 
   <br>
 <br>
 
