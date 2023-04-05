@@ -1,7 +1,7 @@
 # Seja muito bem-vindo(a) ao meu projeto App de Receitas! :rocket:
 ![bem-vindo(a)](https://github.com/ErickArgollo/project-Recipe-App/blob/main/5qA.gif)
 
-#### <p>Esse projeto foi o último projeto do módulo de front-end da Trybe, tem como objetivo desenvolver um aplicativo de receitas utilizando React/ContextApi, desenvolvendo em grupo suas funcionalidades de acordo com as demandas definidas em um quadro Kanban. Utilizamos o styled component para o css do nosso projeto.
+#### <p>Este projeto foi o último do módulo de front-end da Trybe e teve como objetivo desenvolver um aplicativo de receitas utilizando React e Context API, trabalhando em equipe para implementar suas funcionalidades de acordo com as demandas definidas em um quadro Kanban. Além disso, o projeto foi estilizado utilizando a biblioteca de styled components, uma abordagem de UI que permite criar componentes visualmente atraentes e reutilizáveis. O resultado foi um aplicativo de receitas elegante e funcional, que nos permitiu aplicar os conceitos de React e UI de forma prática e colaborativa.
 
 ### Projeto realizado em grupo com os seguintes colegas:
 <b> <a href="https://www.linkedin.com/in/paulo-felipe-campelo/"> Paulo Campelo </a></b> <br>
@@ -18,12 +18,10 @@
 ![ScreenShot](https://github.com/ErickArgollo/project-Recipe-App/blob/main/printRecipe.png)
 
 ## Objetivos
-  * Desenvolver uma aplicação utilizando React/ContextApi.
-  * É possível ver, buscar, filtrar, favoritar e acompanhar o progresso de preparação de receitas de comidas e bebidas!
-  * Utilizar o React Hook useState
-  * Utilizar o React Hook useContext
-  * Utilizar o React Hook useEffect
-  * Uma tela de perfil com a opção de Logout
+  * Utilização do React/ContextApi para gerenciamento de estado da aplicação;
+  * Implementação de funcionalidades como visualização, busca, filtro, favoritismo e acompanhamento do progresso de preparação das receitas.
+  * Uso dos Hooks useState, useContext e useEffect para facilitar o gerenciamento de estado e efeitos colaterais na aplicação;
+  * Criação de uma tela de perfil do usuário com opção de Logout.
   
 ## Tecnologias/Ferramentas usadas
   * HTML
@@ -35,7 +33,7 @@
   <br>
 
 ## Como utilizar
-  Basta acessar a página, fazer login( necessário email válido no formato teste@teste.com e uma senha de no mínimo 6 digitos) e navegar através das receitas favoritando as suas receitas favoritas e conhecendo novos pratos/bebidas! 
+ Para utilizar a aplicação, basta acessar a página e fazer o login com um email válido no formato teste@teste.com e uma senha de no mínimo 2 dígitos. A partir daí, é possível navegar pelas receitas disponíveis, filtrar por nome, categoria ou ingrediente, favoritar suas receitas preferidas e acompanhar o progresso de preparação das receitas selecionadas. Além disso, a aplicação possui uma tela de perfil com a opção de Logout. Experimente agora mesmo e descubra novos pratos e bebidas deliciosas!
   <br>
 <br>
 
