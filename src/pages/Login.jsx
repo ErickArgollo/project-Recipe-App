@@ -8,13 +8,26 @@ import * as S from './styles/Login.style';
 function Login({ history }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isValidPassword, setValidPassword] = useState(false);
+  const [isValidMail, setValidMail] = useState(false);
   const [isDisabled, setDisabled] = useState(true);
   const [pageLoading, setLoading] = useState(true);
 
   const validateInputs = () => {
-    const setMinVal = 6;
-    const regexEmail = /\S+@\S+\.\S+/;
+    const setMinVal = 2;
+    const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const validateMail = regexEmail.test(email);
+
+    if(password.length > setMinVal){
+      setValidPassword(true)
+    } else {
+      setValidPassword(false)
+    }
+    if(validateMail) {
+      setValidMail(true)
+    } else {
+      setValidMail(false)
+    }
 
     if (password.length > setMinVal && validateMail) {
       setDisabled(false);
@@ -50,18 +63,34 @@ function Login({ history }) {
           <S.tomate src={ tomatepicture } alt="tomate" />
         </S.imgsContainer>
         <S.inputContainer>
-          <S.inputMailAndPassword
-            type="email"
-            onChange={ ({ target }) => setEmail(target.value) }
-            placeholder="Email"
-            data-testid="email-input"
-          />
-          <S.inputMailAndPassword
-            type="password"
-            placeholder="Password"
-            data-testid="password-input"
-            onChange={ ({ target }) => setPassword(target.value) }
-          />
+          <S.inputMailContainer>
+            <S.inputMailAndPassword
+              type="email"
+              onChange={ ({ target }) => setEmail(target.value) }
+              placeholder="validemail@valid.com"
+              data-testid="email-input"
+            />
+            <S.Warning>
+          <span class="material-icons" style={{color: !isValidMail ? "red" : "green"}}>
+          error_outline
+          </span>
+        </S.Warning>
+          </S.inputMailContainer>
+
+          <S.inputMailContainer>
+            <S.inputMailAndPassword
+              type="password"
+              placeholder="Password"
+              data-testid="password-input"
+              onChange={ ({ target }) => setPassword(target.value) }
+            />
+            <S.Warning>
+          <span class="material-icons" style={{color: !isValidPassword ? "red" : "green"}}>
+          error_outline
+          </span>
+        </S.Warning>
+          </S.inputMailContainer>
+
           <S.loginBtn
             type="button"
             data-testid="login-submit-btn"
@@ -73,7 +102,7 @@ function Login({ history }) {
         </S.inputContainer>
       </S.formLoginContainer>
       }
-      
+
     </S.loginStyle>
   );
 }

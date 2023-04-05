@@ -13,6 +13,12 @@ left: 50%;
 transform: translate(-50%, -50%);
 `;
 
+export const Warning = styled.div`
+position: relative;
+top: 3px;
+margin-left: 5px
+`
+
 export const formLoginContainer = styled.div`
 display: flex;
 flex-direction: column;
@@ -30,6 +36,12 @@ background: #41197F;
 position: relative;
 z-index: 1;
 `;
+
+export const inputMailContainer = styled.div`
+display: flex;
+align-items: center;
+gap: 2px;
+`
 
 export const logo = styled.img`
 width: 240px;
@@ -77,7 +89,7 @@ export const loginBtn = styled.button`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: white;
     font-weight: 700;
-    width: 188px;
+    width: 205px;
     height: 35px;
     border: none;
 
